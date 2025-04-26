@@ -65,9 +65,9 @@ export default function ExperienceSection() {
               >
                 <div className="pl-4 pt-2">
                   <span className="text-code-operator">return</span> [<br />
-                  {(exp.responsibilities || exp.achievements)?.map((item, i) => (
+                  {(exp.responsibilities )?.map((item, i) => (
                     <span key={i} className="pl-4 text-code-string">
-                      "{item}"{i < (exp.responsibilities || exp.achievements || []).length - 1 ? "," : ""}
+                      &quot;{item}&quot;{i < (exp.responsibilities || []).length - 1 ? "," : ""}
                       <br />
                     </span>
                   ))}
