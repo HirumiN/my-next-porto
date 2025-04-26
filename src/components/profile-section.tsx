@@ -9,7 +9,7 @@ export default function ProfileSection() {
         {`// PROFILE`}
       </div>
 
-      <div className="flex flex-col md:flex-row justify-evenly items-center">
+      <div className="flex flex-col md:flex-row justify-evenly items-center gap-6">
         <div className="relative w-56 h-56 rounded-full overflow-hidden border-2 border-primary/50 group transition-transform duration-300 hover:scale-105 shadow-glow">
           <Image
             src="/img/profile.jpeg"

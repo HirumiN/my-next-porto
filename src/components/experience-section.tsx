@@ -1,6 +1,19 @@
-import { Calendar, ExternalLink } from "lucide-react"
+"use client"
+
+import { Calendar, ChevronDown, ChevronUp, ExternalLink } from "lucide-react"
 import { EXPERIENCE } from "../../lib/constans"
+import { useState } from "react"
+
 export default function ExperienceSection() {
+
+  const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>({})
+
+  const toggleItem = (index: number) => {
+    setExpandedItems((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }))
+  }
   return (
     <section id="experience" className="pb-8 border-t border-border pt-6">
       <div className="text-code-comment mb-4 text-center ">
@@ -31,20 +44,37 @@ export default function ExperienceSection() {
             </div>
             <p className="text-foreground mb-4">{exp.description}</p>
             <div className="text-code-comment">
-              <span className="text-code-operator">function</span>{" "}
-              <span className="text-code-function">{exp.responsibilities ? "responsibilities" : "achievements"}</span>(){" "}
-              {"{"}
-              <div className="pl-4">
-                <span className="text-code-operator">return</span> [<br />
-                {(exp.responsibilities )?.map((item, i) => (
-                  <span key={i} className="pl-4 text-code-string">
-                    &quot;{item}&quot;{i < (exp.responsibilities || []).length - 1 ? "," : ""}
-                    <br />
-                  </span>
-                ))}
-                ];
+              <button
+                onClick={() => toggleItem(index)}
+                className="flex items-center text-left w-full hover:text-primary transition-colors duration-300 focus:outline-none hover:cursor-pointer"
+                aria-expanded={expandedItems[index]}
+                aria-controls={`exp-content-${index}`}
+              >
+                <span className="text-code-operator" style={{ marginRight: '0.5rem' }}>function </span>
+                <span className="text-code-function">{exp.responsibilities ? "responsibilities" : "achievements"}</span>
+                () {"{"}
+                {!expandedItems[index] && <span>{"...}"}</span>}
+                <span className="ml-auto">
+                  {expandedItems[index] ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                </span>
+              </button>
+
+              <div
+                id={`exp-content-${index}`}
+                className={`overflow-hidden transition-all duration-300 ${expandedItems[index] ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+              >
+                <div className="pl-4 pt-2">
+                  <span className="text-code-operator">return</span> [<br />
+                  {(exp.responsibilities || exp.achievements)?.map((item, i) => (
+                    <span key={i} className="pl-4 text-code-string">
+                      "{item}"{i < (exp.responsibilities || exp.achievements || []).length - 1 ? "," : ""}
+                      <br />
+                    </span>
+                  ))}
+                  ];
+                </div>
+                {expandedItems[index] && <span>{"}"}</span>}
               </div>
-              {"}"}
             </div>
           </div>
         ))}

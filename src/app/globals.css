@@ -65,8 +65,8 @@
 
 body {
   @apply bg-background text-foreground;
+  background: linear-gradient(to bottom, hsl(230, 30%, 5%), hsl(230, 30%, 10%)); /* Darker gradient */
 }
-
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -231,35 +231,38 @@ body {
 }
 
 .dark {
-  --background: oklch(21.87% 0.032 270.89);
-  --foreground: oklch(97.78% 0.011 257.49);
+  --background: oklch(0.13 0.02 264); /* Darker background */
+  --foreground: oklch(0.98 0.005 258);
+  
+  --card: oklch(0.17 0.025 264);
+  --card-foreground: oklch(0.98 0.005 258);
+  
+  --popover: oklch(0.20 0.025 264);
+  --popover-foreground: oklch(0.98 0.005 258);
+  
+  --primary: oklch(0.86 0.23 295);
+  --primary-foreground: oklch(1 0 0); /* white */
+  
+  --secondary: oklch(0.20 0.025 264);
+  --secondary-foreground: oklch(0.98 0.005 258);
+  
+  --muted: oklch(0.23 0.025 264);
+  --muted-foreground: oklch(0.65 0.03 240);
+  
+  --accent: oklch(0.86 0.23 295);
+  --accent-foreground: oklch(0.98 0.005 258);
+  
+  --destructive: oklch(0.30 0.12 20);
+  --destructive-foreground: oklch(0.98 0.005 258);
+  
+  --border: oklch(0.25 0.025 264);
+  --input: oklch(0.25 0.025 264);
+  --ring: oklch(0.86 0.23 295);
+  
+  --radius: 0.5rem;
+  
 
-  --card: oklch(25.25% 0.033 270.89);
-  --card-foreground: oklch(97.78% 0.011 257.49);
-
-  --popover: oklch(0.205 0 0);
-
-  --popover-foreground: oklch(0.985 0 0);
-
-  --primary: oklch(76.11% 0.273 305.29);
-  --primary-foreground: oklch(100% 0 0);
-
-  --secondary: oklch(28.51% 0.035 270.89);
-  --secondary-foreground: oklch(97.78% 0.011 257.49);
-
-  --muted: oklch(28.51% 0.035 270.89);
-  --muted-foreground: oklch(65.21% 0.052 259.61);
-  --secondary: oklch(0.269 0 0);
-
-  --accent: oklch(76.11% 0.273 305.29);
-  --accent-foreground: oklch(97.78% 0.011 257.49);
-
-  --destructive: oklch(42.78% 0.195 29.24);
-  --destructive-foreground: oklch(97.78% 0.011 257.49);
-
-  --border: oklch(32.22% 0.036 270.89);
-  --input: oklch(32.22% 0.036 270.89);
-  --ring: oklch(76.11% 0.273 305.29);
+  
 
   --chart-1: oklch(0.488 0.243 264.376);
 
@@ -295,4 +298,64 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+/* Cursor blink animation */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Reveal animation */
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal {
+  animation: reveal 0.8s ease-out forwards;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
 }

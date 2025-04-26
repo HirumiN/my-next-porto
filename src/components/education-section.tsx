@@ -20,7 +20,7 @@ export default function EducationSection() {
                             </div>
                         </div>
                         <div className="text-code-keyword mb-2">{edu.institution}</div>
-                        <p className="text-foreground mb-4">{edu.description}</p>
+                        {/* <p className="text-foreground mb-4">{edu.description}</p> */}
                         <div className="text-code-comment">
                             <span className="text-code-operator">const</span>{" "}
                             <span className="text-code-variable">{edu.courses ? "courses" : "projects"}</span> = [

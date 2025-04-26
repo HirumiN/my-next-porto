@@ -75,6 +75,10 @@ export default function Footer() {
           <div className="text-sm text-muted-foreground mt-4">
             <p>© {new Date().getFullYear()} Hilmi Nurullah. All rights reserved.</p>
             <p className="mt-1">Built with Next.js and Tailwind CSS</p>
+            <p className="mt-2 text-xs opacity-50">
+              <span className="text-primary">Hint:</span> Press{" "}
+              <kbd className="px-1 py-0.5 bg-secondary rounded text-xs">`</kbd> to open the developer console
+            </p>
           </div>
         </div>
       </div>
