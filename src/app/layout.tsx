@@ -3,7 +3,7 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { ThemeProvider } from "next-themes"
 export const metadata: Metadata = {
-  title: "Developer Portfolio",
+  title: "Hilmi Portfolio",
   description: "A modern code-themed portfolio showcasing my skills and projects",
 }
 
