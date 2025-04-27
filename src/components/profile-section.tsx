@@ -38,6 +38,21 @@ export default function ProfileSection() {
             <ContactItem icon={<Linkedin className="h-4 w-4" />} text={PROFILE.contact.linkedin} href="https://www.linkedin.com/in/hilmin/" />
             <ContactItem icon={<Instagram className="h-4 w-4" />} text={PROFILE.contact.instagram} href="#https://www.instagram.com/hirumi_nur/" />
           </div>
+          {/* <div className="mt-6">
+            <a
+              href="/resume.pdf" // Replace with actual resume PDF path
+              download="John_Doe_Resume.pdf" // Replace with your actual name
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30 rounded-md transition-all duration-300 hover:shadow-glow group"
+            >
+              <FileDown className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+              <span className="text-code-function">
+                <span className="text-code-keyword">download</span>
+                <span className="text-white">(</span>
+                <span className="text-code-string">&quot;resume.pdf&quot;</span>
+                <span className="text-white">)</span>
+              </span>
+            </a>
+          </div> */}
         </div>
       </div>
     </section>

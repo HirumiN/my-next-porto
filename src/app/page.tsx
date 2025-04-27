@@ -6,7 +6,7 @@ import ExperienceSection from "@/components/experience-section"
 import ProjectsSection from "@/components/projects-section"
 import CodeNavigation from "@/components/code-navigation"
 import Footer from "@/components/footer"
-import ConstellationBackground from "@/components/constellation-background"
+import ConstellationBackground from "@/components/ui/constellation-background"
 import CommandConsole from "@/components/command-console"
 
 export default function Portfolio() {

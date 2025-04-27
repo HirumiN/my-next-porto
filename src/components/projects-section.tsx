@@ -4,6 +4,7 @@ import { useState } from "react"
 import { ExternalLink, Github, Calendar, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import { PROJECTS } from "../../lib/constans"
+import ScrollReveal from "./ui/scroll-reveal"
 
 export default function ProjectsSection() {
   const [currentPage, setCurrentPage] = useState(1)
@@ -36,7 +37,9 @@ export default function ProjectsSection() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {currentProjects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
+          <ScrollReveal key={index}>
+            <ProjectCard {...project} />
+          </ScrollReveal>
         ))}
       </div>
 
