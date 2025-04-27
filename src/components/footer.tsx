@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from "react"
 import { Terminal } from "lucide-react"
 
-// Array of programming jokes and quotes
 const JOKES_AND_QUOTES = [
   "Why do programmers prefer dark mode? Because light attracts bugs.",
   "The best thing about a boolean is that even if you are wrong, you are only off by a bit.",
@@ -22,38 +21,59 @@ const JOKES_AND_QUOTES = [
   "The best error message is the one that never shows up.",
 ]
 
+const MOBILE_QUOTES = [
+  "403",
+  "Oops",
+  "Forbidden",
+  "Error",
+]
+
 export default function Footer() {
   const [text, setText] = useState("")
   const [isDeleting, setIsDeleting] = useState(false)
   const [jokeIndex, setJokeIndex] = useState(0)
   const [typingSpeed, setTypingSpeed] = useState(50)
+  const [isMobile, setIsMobile] = useState(false)
 
-  const currentJoke = JOKES_AND_QUOTES[jokeIndex]
+  const quotesArray = isMobile ? MOBILE_QUOTES : JOKES_AND_QUOTES
+  const currentJoke = quotesArray[jokeIndex]
 
   const typeText = useCallback(() => {
-    // If we're deleting, remove a character
     if (isDeleting) {
       setText((prev) => prev.substring(0, prev.length - 1))
-      setTypingSpeed(30) // Faster when deleting
+      setTypingSpeed(30)
     } else {
-      // If we're typing, add a character
       setText(currentJoke.substring(0, text.length + 1))
-      setTypingSpeed(50) // Normal typing speed
+      setTypingSpeed(50)
     }
 
-    // If we've finished typing the full joke
     if (!isDeleting && text === currentJoke) {
-      // Wait a bit before starting to delete
-      setTimeout(() => setIsDeleting(true), 2000)
+      setTimeout(() => setIsDeleting(true), 1500)
     }
 
-    // If we've deleted everything
     if (isDeleting && text === "") {
       setIsDeleting(false)
-      // Move to next joke (or loop back to start)
-      setJokeIndex((prev) => (prev + 1) % JOKES_AND_QUOTES.length)
+      if (isMobile) {
+        // Kalau mobile, random next
+        const randomIndex = Math.floor(Math.random() * MOBILE_QUOTES.length)
+        setJokeIndex(randomIndex)
+      } else {
+        // Kalau desktop, lanjut next normal
+        setJokeIndex((prev) => (prev + 1) % JOKES_AND_QUOTES.length)
+      }
     }
-  }, [text, isDeleting, currentJoke])
+  }, [text, isDeleting, currentJoke, isMobile])
+
+  useEffect(() => {
+    const checkMobile = () => {
+      if (typeof window !== "undefined") {
+        setIsMobile(window.innerWidth <= 768)
+      }
+    }
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
 
   useEffect(() => {
     const timer = setTimeout(typeText, typingSpeed)
