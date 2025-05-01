@@ -42,40 +42,41 @@ export default function ExperienceSection() {
                   <span>{exp.period}</span>
                 </div>
               </div>
-              <div className="flex items-center text-code-keyword mb-2">
+              <a
+                href={exp.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-code-keyword mb-2 group text-primary hover:text-primary/80 transition-colors duration-300"
+              >
                 <span>{exp.company}</span>
-                <a
-                  href={exp.companyUrl}
-                  className="inline-flex items-center ml-2 text-primary hover:text-primary/80 transition-colors duration-300"
-                >
-                  <ExternalLink className="h-3 w-3" />
-                </a>
-              </div>
+                <ExternalLink className="h-3 w-3 ml-2 group-hover:text-primary/80" />
+              </a>
+
               <p className="text-foreground mb-4">{exp.description}</p>
               <div className="text-code-comment">
-              <button
-  onClick={() => toggleItem(index)}
-  className="flex items-center text-left w-full hover:text-primary transition-colors duration-300 focus:outline-none hover:cursor-pointer"
-  aria-expanded={expandedItems[index]}
-  aria-controls={`exp-content-${index}`}
->
-  <span className="text-code-operator" style={{ marginRight: '0.5rem' }}>function </span>
-  <span className="text-code-function">
-    {exp.responsibilities ? "responsibilities" : "achievements"}
-  </span>
-  
-  {/* hanya tampilkan kurung buka kalau desktop */}
-  {!isMobile && (
-    <>
-      () {"{"}
-      {!expandedItems[index] && <span>...</span>}
-    </>
-  )}
-  
-  <span className="ml-auto">
-    {expandedItems[index] ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-  </span>
-</button>
+                <button
+                  onClick={() => toggleItem(index)}
+                  className="flex items-center text-left w-full hover:text-primary transition-colors duration-300 focus:outline-none hover:cursor-pointer"
+                  aria-expanded={expandedItems[index]}
+                  aria-controls={`exp-content-${index}`}
+                >
+                  <span className="text-code-operator" style={{ marginRight: '0.5rem' }}>function </span>
+                  <span className="text-code-function">
+                    {exp.responsibilities ? "responsibilities" : "achievements"}
+                  </span>
+
+                  {/* hanya tampilkan kurung buka kalau desktop */}
+                  {!isMobile && (
+                    <>
+                      () {"{"}
+                      {!expandedItems[index] && <span>...</span>}
+                    </>
+                  )}
+
+                  <span className="ml-auto">
+                    {expandedItems[index] ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                  </span>
+                </button>
 
 
                 <div

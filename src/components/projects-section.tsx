@@ -1,10 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { ExternalLink, Github, Calendar, ChevronLeft, ChevronRight } from "lucide-react"
+import { Calendar, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import { PROJECTS } from "../../lib/constans"
 import ScrollReveal from "./ui/scroll-reveal"
+import ProjectLinkButton from "./project-link-button"
 
 export default function ProjectsSection() {
   const [currentPage, setCurrentPage] = useState(1)
@@ -49,11 +50,10 @@ export default function ProjectsSection() {
           <button
             onClick={goToPrevPage}
             disabled={currentPage === 1}
-            className={`p-2 rounded-md ${
-              currentPage === 1
-                ? "text-muted-foreground cursor-not-allowed"
-                : "text-primary hover:bg-secondary transition-colors duration-300"
-            }`}
+            className={`p-2 rounded-md ${currentPage === 1
+              ? "text-muted-foreground cursor-not-allowed"
+              : "text-primary hover:bg-secondary transition-colors duration-300"
+              }`}
             aria-label="Previous page"
           >
             <ChevronLeft className="h-5 w-5" />
@@ -64,11 +64,10 @@ export default function ProjectsSection() {
               <button
                 key={index}
                 onClick={() => setCurrentPage(index + 1)}
-                className={`h-8 w-8 rounded-md flex items-center justify-center transition-colors duration-300 ${
-                  currentPage === index + 1
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground hover:bg-secondary"
-                }`}
+                className={`h-8 w-8 rounded-md flex items-center justify-center transition-colors duration-300 ${currentPage === index + 1
+                  ? "bg-primary text-primary-foreground"
+                  : "text-foreground hover:bg-secondary"
+                  }`}
                 aria-label={`Page ${index + 1}`}
               >
                 {index + 1}
@@ -79,11 +78,10 @@ export default function ProjectsSection() {
           <button
             onClick={goToNextPage}
             disabled={currentPage === totalPages}
-            className={`p-2 rounded-md ${
-              currentPage === totalPages
-                ? "text-muted-foreground cursor-not-allowed"
-                : "text-primary hover:bg-secondary transition-colors duration-300"
-            }`}
+            className={`p-2 rounded-md ${currentPage === totalPages
+              ? "text-muted-foreground cursor-not-allowed"
+              : "text-primary hover:bg-secondary transition-colors duration-300"
+              }`}
             aria-label="Next page"
           >
             <ChevronRight className="h-5 w-5" />
@@ -143,28 +141,10 @@ function ProjectCard({ title, description, technologies, githubUrl, demoUrl, per
           </div>
         </div>
 
-        {(githubUrl || demoUrl) && (
-          <div className="flex gap-4 mt-4">
-            {githubUrl && (
-              <a
-                href={githubUrl}
-                className="flex items-center text-primary hover:text-primary/80 text-sm transition-all duration-300 hover:translate-x-1"
-              >
-                <Github className="h-4 w-4 mr-1" />
-                <span>Code</span>
-              </a>
-            )}
-            {demoUrl && (
-              <a
-                href={demoUrl}
-                className="flex items-center text-primary hover:text-primary/80 text-sm transition-all duration-300 hover:translate-x-1"
-              >
-                <ExternalLink className="h-4 w-4 mr-1" />
-                <span>Live Demo</span>
-              </a>
-            )}
-          </div>
-        )}
+        <div className="flex gap-4 mt-4">
+          {githubUrl && <ProjectLinkButton type="github" url={githubUrl} />}
+          {demoUrl && <ProjectLinkButton type="demo" url={demoUrl} />}
+        </div>
       </div>
     </div>
   )
