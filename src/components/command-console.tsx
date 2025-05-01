@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { Terminal } from "lucide-react"
+import { SKILLS, PROJECTS, PROFILE } from "../../lib/constans"
 
 export default function CommandConsole() {
   const [isOpen, setIsOpen] = useState(false)
@@ -32,31 +33,44 @@ export default function CommandConsole() {
       return []
     },
     about: () => {
-      return [
-        "I'm a full-stack developer with a passion for creating clean, efficient, and user-friendly applications.",
-      ]
+      return [PROFILE.bio]
     },
     skills: () => {
-      return [
-        "Frontend: React, JavaScript, TypeScript, HTML/CSS, Next.js, Tailwind CSS",
-        "Backend: Node.js, Express, MongoDB, SQL, GraphQL",
-        "Tools: Git, Docker, Jest, Webpack, VS Code",
-      ]
+      const skillsList = []
+
+      // Frontend skills as comma-separated list
+      const frontendSkills = SKILLS.frontend.map((skill) => skill.name).join(", ")
+      skillsList.push("Frontend: " + frontendSkills)
+
+      // Backend skills as comma-separated list
+      const backendSkills = SKILLS.backend.map((skill) => skill.name).join(", ")
+      skillsList.push("Backend: " + backendSkills)
+
+      // Tools & Others skills as comma-separated list
+      const toolsSkills = SKILLS.tools.map((skill) => skill.name).join(", ")
+      skillsList.push("Tools & Others: " + toolsSkills)
+
+      return skillsList
     },
     projects: () => {
-      return [
-        "E-commerce Platform: A full-stack e-commerce platform",
-        "Task Management App: A Kanban-style task management application",
-        "Weather Dashboard: A weather dashboard with forecasts",
-        "Portfolio Website: This website!",
-      ]
+      const projectsList = []
+
+      PROJECTS.slice(0, 5).forEach((project) => {
+        projectsList.push(`${project.title}: ${project.description.substring(0, 60)}...`)
+      })
+
+      if (PROJECTS.length > 5) {
+        projectsList.push(`\nAnd ${PROJECTS.length - 5} more projects. View all in the Projects section.`)
+      }
+
+      return projectsList
     },
     contact: () => {
       return [
-        "Email: john.doe@example.com",
-        "Phone: +1 (555) 123-4567",
-        "GitHub: github.com/johndoe",
-        "LinkedIn: linkedin.com/in/johndoe",
+        `Email: ${PROFILE.contact.email}`,
+        `Phone: ${PROFILE.contact.phone}`,
+        `GitHub: ${PROFILE.contact.github}`,
+        `LinkedIn: ${PROFILE.contact.linkedin}`,
       ]
     },
     exit: () => {
