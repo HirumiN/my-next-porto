@@ -96,6 +96,16 @@ export const EXPERIENCE = [
 // Projects -
 export const PROJECTS = [
   {
+    title: "Xora landing page",
+    description:
+      "A simple landing page for a fictional company called Xora, showcasing its products and services.",
+    technologies: ["React", "Tailwind CSS"],
+    githubUrl: "https://github.com/HirumiN/saas_landing_page",
+    demoUrl: "https://cobalanding.netlify.app/",
+    period: "2025",
+    image: "/img/Xora.png",
+  },
+  {
     title: "Management App",
     description:
       "A simple full-stack management app that includes projects, tasks, and users.",
@@ -105,6 +115,7 @@ export const PROJECTS = [
     period: "2025",
     image: "/img/management.png",
   },
+
   {
     title: "Sales App",
     description:
@@ -145,6 +156,7 @@ export const PROJECTS = [
     period: "2024",
     image: "/img/meal.png",
   },
+
   {
     title: "Lone Germ",
     description:
