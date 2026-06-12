@@ -1,6 +1,6 @@
 import type React from "react"
 import Image from "next/image"
-import { Mail, Github, Linkedin, Instagram, FileDown } from "lucide-react"
+import { Mail, Github, Linkedin, FileDown } from "lucide-react"
 import { PROFILE } from "../../lib/constans"
 export default function ProfileSection() {
   return (
@@ -36,7 +36,6 @@ export default function ProfileSection() {
             <ContactItem icon={<Mail className="h-4 w-4" />} text={PROFILE.contact.email} href={`mailto:${PROFILE.contact.email}`} />
             <ContactItem icon={<Github className="h-4 w-4" />} text={PROFILE.contact.github} href="https://github.com/HirumiN" />
             <ContactItem icon={<Linkedin className="h-4 w-4" />} text={PROFILE.contact.linkedin} href="https://www.linkedin.com/in/hilmin/" />
-            <ContactItem icon={<Instagram className="h-4 w-4" />} text={PROFILE.contact.instagram} href="#https://www.instagram.com/hirumi_nur/" />
           </div>
           <div className="mt-6">
             <a

@@ -102,7 +102,7 @@ interface ProjectCardProps {
   image: string
 }
 
-function ProjectCard({ title, description, technologies, githubUrl, demoUrl, period, image }: ProjectCardProps) {
+function ProjectCard({ title, description, technologies, githubUrl, demoUrl, image }: ProjectCardProps) {
   return (
     <div className="bg-card rounded-lg overflow-hidden border border-border transition-all duration-300 hover:shadow-glow hover:translate-y-[-4px]">
       <div className="relative h-48 overflow-hidden group">

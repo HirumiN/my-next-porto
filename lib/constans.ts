@@ -11,7 +11,6 @@ export const PROFILE = {
     location: "Indonesia",
     github: "github.com/HirumiN",
     linkedin: "linkedin.com/in/hilmin",
-    instagram: "@hirummi_nur",
   },
 };
 
