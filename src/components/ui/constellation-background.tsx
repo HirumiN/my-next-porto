@@ -93,8 +93,6 @@ export default function ConstellationBackground() {
 
       // Clear canvas
       ctx.clearRect(0, 0, width, height)
-      ctx.fillStyle = "rgba(0, 0, 0, 0.1)"
-      ctx.fillRect(0, 0, width, height)
 
       // Draw stars and connections
       for (let i = 0; i < starsRef.current.length; i++) {
@@ -110,19 +108,19 @@ export default function ConstellationBackground() {
           star.twinkleDirection *= -1
         }
 
-        // Draw star glow
+        // Draw star glow (indigo)
         const gradient = ctx.createRadialGradient(x, y, 0, x, y, star.size * 2)
-        gradient.addColorStop(0, `rgba(180, 180, 255, ${star.opacity})`)
-        gradient.addColorStop(1, "rgba(180, 180, 255, 0)")
+        gradient.addColorStop(0, `rgba(99, 102, 241, ${star.opacity * 0.3})`)
+        gradient.addColorStop(1, "rgba(99, 102, 241, 0)")
 
         ctx.beginPath()
         ctx.fillStyle = gradient
         ctx.arc(x, y, star.size * 2, 0, Math.PI * 2)
         ctx.fill()
 
-        // Draw star center
+        // Draw star center (darker indigo)
         ctx.beginPath()
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`
+        ctx.fillStyle = `rgba(79, 70, 229, ${star.opacity * 0.75})`
         ctx.arc(x, y, star.size, 0, Math.PI * 2)
         ctx.fill()
 
@@ -163,8 +161,8 @@ export default function ConstellationBackground() {
 
           // Fade the line based on distance
           const maxDistance = width * 0.2
-          const opacity = (1 - distance / maxDistance) * 0.4
-          ctx.strokeStyle = `rgba(180, 180, 255, ${opacity})`
+          const opacity = (1 - distance / maxDistance) * 0.45
+          ctx.strokeStyle = `rgba(99, 102, 241, ${opacity * 0.4})`
           ctx.lineWidth = 0.8
           ctx.stroke()
         }

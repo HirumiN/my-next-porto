@@ -3,12 +3,12 @@
 // Profile information
 export const PROFILE = {
   name: "Hilmi Nurullah",
-  title: "Full-stack Developer",
-  bio: "Full-stack developer with a passion for creating clean, efficient, and user-friendly applications. I specialize in React, Laravel, and modern web technologies.",
+  title: "Software Engineer",
+  bio: "A versatile software engineer dedicated to building high-performance, accessible, and delightful digital experiences. Passionate about solving complex problems and creating new technologies to adapt to project needs.",
   contact: {
     email: "hilminurullah3@gmail.com",
     phone: "+1 (555) 123-4567",
-    location: "San Francisco, CA",
+    location: "Indonesia",
     github: "github.com/HirumiN",
     linkedin: "linkedin.com/in/hilmin",
     instagram: "@hirummi_nur",
@@ -35,7 +35,7 @@ export const SKILLS = {
   tools: [
     { name: "Git" },
     { name: "Docker" },
-    { name: "Webpack" },
+    { name: "AI Integration" },
     { name: "Figma" },
     { name: "VS Code" },
     { name: "CI/CD" },
@@ -63,18 +63,17 @@ export const EDUCATION = [
 // Work experience
 export const EXPERIENCE = [
   {
-    title: "Project Manager",
-    company: "Janaka Visual Novel",
+    title: "Full-stack Developer",
+    company: "PT Liveboard Cruise Indonesia",
     companyUrl: "#",
-    period: "2024 - 2025",
+    period: "2025",
     description:
-      "Responsible for managing the end-to-end development of a visual novel game, ensuring smooth collaboration across teams and successful project delivery.",
+      "Developed a full-stack warehouse application for managing and tracking goods delivery, optimizing inventory operations and streamlining shipment workflows.",
     responsibilities: [
-      "Planned and managed the production timeline",
-      "Created and maintained project documentation",
-      "Monitored project progress and made adjustments as necessary",
-      "Resolved conflicts and issues within the team",
-      "Conducted user testing and gathered feedback to improve the game experience",
+      "Designed and developed the database schema and REST APIs for shipment and inventory tracking",
+      "Created an interactive dashboard using React to monitor real-time stock levels and delivery statuses",
+      "Integrated logistics and shipping services to automate delivery label generation and tracking updates",
+      "Collaborated with warehouse operations teams to design user-friendly features for scanning and receiving goods",
     ],
   },
   {
@@ -91,10 +90,45 @@ export const EXPERIENCE = [
       "Conducted code reviews and provided constructive feedback to team members",
     ],
   },
+  {
+    title: "Project Manager",
+    company: "Janaka Visual Novel",
+    companyUrl: "#",
+    period: "2024 - 2025",
+    description:
+      "Responsible for managing the end-to-end development of a visual novel game, ensuring smooth collaboration across teams and successful project delivery.",
+    responsibilities: [
+      "Planned and managed the production timeline",
+      "Created and maintained project documentation",
+      "Monitored project progress and made adjustments as necessary",
+      "Resolved conflicts and issues within the team",
+      "Conducted user testing and gathered feedback to improve the game experience",
+    ],
+  },
 ];
 
 // Projects -
 export const PROJECTS = [
+  {
+    title: "Warehouse & Logistics App",
+    description:
+      "A web-based warehouse management application built for cargo and shipment tracking, item cataloging, and real-time delivery status updates for cruise and logistics ships.",
+    technologies: ["Laravel", "React", "MySQL", "Tailwind CSS"],
+    githubUrl: null,
+    demoUrl: null,
+    period: "2025",
+    image: "/img/warehouse.jpg",
+  },
+  {
+    title: "AI Study & Career Recommendation",
+    description:
+      "An interactive, AI-powered consultation platform designed to help students plan their academic, career, and entrepreneurial roadmaps with customized step-by-step guidance.",
+    technologies: ["React", "FastAPI", "Gemini API", "Tailwind CSS"],
+    githubUrl: "https://github.com/HirumiN",
+    demoUrl: null,
+    period: "2025",
+    image: "/img/TAAI.jpg",
+  },
   {
     title: "Xora landing page",
     description:

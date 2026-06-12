@@ -26,7 +26,7 @@ export default function ProfileSection() {
 
         <div className="flex-1 text-center md:text-left max-w-2xl">
           <h1 className="text-3xl font-bold text-code-function mb-2">
-            <span className="text-code-keyword">const</span> developer <span className="text-white">=</span>{" "}
+            <span className="text-code-keyword">const</span> developer <span className="text-code-operator">=</span>{" "}
             <span className="text-code-string">&quot;{PROFILE.name}&quot;</span>;
           </h1>
 
@@ -47,9 +47,9 @@ export default function ProfileSection() {
               <FileDown className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
               <span className="text-code-function">
                 <span className="text-code-keyword">download</span>
-                <span className="text-white">(</span>
+                <span className="text-code-operator">(</span>
                 <span className="text-code-string">&quot;resume.pdf&quot;</span>
-                <span className="text-white">)</span>
+                <span className="text-code-operator">)</span>
               </span>
             </a>
           </div>

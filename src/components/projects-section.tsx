@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Calendar, ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import { PROJECTS } from "../../lib/constans"
 import ScrollReveal from "./ui/scroll-reveal"
@@ -117,12 +117,8 @@ function ProjectCard({ title, description, technologies, githubUrl, demoUrl, per
       </div>
 
       <div className="p-5">
-        <div className="flex justify-between items-start mb-3">
+        <div className="mb-3">
           <h3 className="text-code-function font-semibold">{title}</h3>
-          <div className="flex items-center text-code-string text-sm">
-            <Calendar className="h-3 w-3 mr-1 text-primary" />
-            <span>{period}</span>
-          </div>
         </div>
 
         <p className="text-foreground text-sm mb-4">{description}</p>
